@@ -4,7 +4,7 @@ import {
     spring,
     OpaqueConfig,
     TransitionStyle,
-} from "react-motion";
+} from "@serprex/react-motion";
 import cxs from "cxs";
 import isEqual from "react-fast-compare";
 import { requestTimeout, clearRequestTimeout, RequestTimeout } from "../utils";
@@ -26,8 +26,12 @@ type Props = {
 };
 
 type State = {
-    elements: (JSX.Element | string | undefined)[];
-    currentEl: JSX.Element | string | undefined;
+    elements: (React.ReactChild | React.ReactFragment | React.ReactPortal)[];
+    currentEl:
+        | React.ReactChild
+        | React.ReactFragment
+        | React.ReactPortal
+        | undefined;
     currentWordIndex: number;
     wordCount: number;
     currentInterval: number;
